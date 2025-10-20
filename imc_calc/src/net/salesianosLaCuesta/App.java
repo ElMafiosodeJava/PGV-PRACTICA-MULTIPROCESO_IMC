@@ -15,7 +15,9 @@ public class App {
         try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_ROUTE, StandardCharsets.UTF_8))) {
             String currentLine = reader.readLine();
             while (currentLine != null) {
-                phrases.add(currentLine);
+                if (currentLine.startsWith("DIA") != true) {
+                    phrases.add(currentLine);
+                } 
                 currentLine = reader.readLine();
             }
             phrases.remove(0);
