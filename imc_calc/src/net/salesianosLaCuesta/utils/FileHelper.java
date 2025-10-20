@@ -20,14 +20,15 @@ public class FileHelper {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_ROUTE, StandardCharsets.UTF_8))) {
             String currentLine = reader.readLine();
-            while (currentLine != null && currentLine.equals("") != false) {
+            while (currentLine != null) {
                 currentLine = reader.readLine();
+                if (currentLine.isEmpty()) {
+                    continue;
+                }
                 phrases.add(currentLine);
             }
             reader.close();
         } catch (Exception e) {
-            System.out.println("No se pudo acceder al documento.");
-            return null;
         }
 
         return phrases;
