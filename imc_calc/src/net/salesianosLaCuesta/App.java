@@ -17,7 +17,7 @@ public class App {
 
     ArrayList<Process> phraseSubProcess = new ArrayList<>();
 
-        for (int i = 0; i < phrases.size() - 1; i++) {
+        for (int i = 0; i < phrases.size(); i++) {
             Process subProcess = ProcessLauncher.initOperation(phrases.get(i), "imcCalc.txt");
             phraseSubProcess.add(subProcess);
         }
