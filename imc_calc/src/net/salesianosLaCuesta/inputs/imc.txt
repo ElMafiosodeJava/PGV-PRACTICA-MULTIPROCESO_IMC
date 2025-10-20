@@ -1,0 +1,9 @@
+DIA,ALTURA,PESO
+Lunes,1.91,70.0
+Martes,1.91,70.5
+Miercoles,1.91,71.0
+Jueves,1.91,72
+Viernes,1.91,74
+Sabado,1.91,76
+Domingo,1.91,75
+
