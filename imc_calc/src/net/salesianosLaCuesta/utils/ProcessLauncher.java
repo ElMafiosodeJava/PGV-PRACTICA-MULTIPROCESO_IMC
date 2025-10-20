@@ -5,12 +5,17 @@ import java.io.IOException;
 
 public class ProcessLauncher {
 
-    private static final String OPERATIONS_ROUTE = "./src/net/salesianosLaCuesta/function/operations.java";
+    private static final String OPERATIONS_ROUTE = "./src/net/salesianosLaCuesta/functions/ImcCalc.java";
 
     public static Process initOperation(String text, String outputFileName) throws IOException {
+        
         ProcessBuilder builder = new ProcessBuilder("java", OPERATIONS_ROUTE, text);
-        builder.redirectOutput(new File("./src/net/salesianosLaCuesta/outputs/resultFiles/" + outputFileName));
-        builder.redirectError(new File("./src/net/salesianosLaCuesta/outputs/errorFiles/error.txt"));
+        File outputFile = new File("./src/net/salesianosLaCuesta/outputs/resultFiles/" + outputFileName);
+        File errorFile = new File("./src/net/salesianosLaCuesta/outputs/errorFiles/error.txt");
+        
+        builder.redirectOutput(ProcessBuilder.Redirect.appendTo(outputFile));
+        builder.redirectError(errorFile);
+        
         return builder.start();
 
     }
