@@ -7,6 +7,11 @@ public class ImcCalc {
 
         String[] words = phrase.split(",");
 
+        if (args.length > 1) {
+            System.out.println("Te pasas loco");
+            return;
+        }
+
         String day = words[0];
         String height = words[1];
         String weight = words[2];
