@@ -20,9 +20,11 @@ public class FileHelper {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_ROUTE, StandardCharsets.UTF_8))) {
             String currentLine = reader.readLine();
-            while (currentLine != null && currentLine.equals("") != false) {
+            while (currentLine != null) {
                 currentLine = reader.readLine();
-                phrases.add(currentLine);
+                if (currentLine.startsWith("DIA")) {
+                    phrases.add(currentLine);
+                }
             }
             reader.close();
         } catch (Exception e) {
