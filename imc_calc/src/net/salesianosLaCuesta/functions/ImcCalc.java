@@ -8,7 +8,6 @@ public class ImcCalc {
         String[] words = phrase.split(",");
 
         if (args.length > 1) {
-            System.out.println("Te pasas loco");
             return;
         }
 
