@@ -9,13 +9,12 @@ import net.salesianosLaCuesta.utils.ProcessLauncher;
 
 public class App {
     public static void main(String[] args) throws IOException, InterruptedException {
-    
-        
-    FileHelper file = new FileHelper();
 
-    ArrayList <String> phrases = file.leerDocumento();
+        FileHelper file = new FileHelper();
 
-    ArrayList<Process> phraseSubProcess = new ArrayList<>();
+        ArrayList<String> phrases = file.leerDocumento();
+
+        ArrayList<Process> phraseSubProcess = new ArrayList<>();
 
         for (int i = 0; i < phrases.size(); i++) {
             Process subProcess = ProcessLauncher.initOperation(phrases.get(i), "imcCalc.txt");
@@ -23,8 +22,11 @@ public class App {
         }
 
         for (Process process : phraseSubProcess) {
-            process.waitFor();  
+            process.waitFor();
         }
+
+
+        
 
     }
 }
