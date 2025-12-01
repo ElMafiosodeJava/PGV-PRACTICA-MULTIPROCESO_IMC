@@ -6,44 +6,71 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FileHelper {
 
+    private static final String INPUT_ROUTE =
+            "./src/net/salesianosLaCuesta/inputs/imc.txt";
+
+    private static final Path OUTPUT_ROUTE =
+            Paths.get("./src/net/salesianosLaCuesta/outputs/resultFiles/imcCalc.txt");
+
+    /**
+     * Lee el fichero imc.txt, salta la cabecera y devuelve
+     * las líneas con datos en una lista.
+     */
     public ArrayList<String> leerDocumento() throws IOException {
 
-        final String INPUT_ROUTE = "./src/net/salesianosLaCuesta/inputs/imc.txt";
+        ArrayList<String> lines = new ArrayList<>();
 
-        deleteIfExist();
-        
-        ArrayList<String> phrases = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(INPUT_ROUTE))) {
+            String line;
+            boolean first = true; // para saltar "DIA,ALTURA,PESO"
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_ROUTE, StandardCharsets.UTF_8))) {
-            String currentLine = reader.readLine();
-            while (currentLine != null) {
-                currentLine = reader.readLine();
-                if (currentLine.isEmpty()) {
+            while ((line = br.readLine()) != null) {
+                if (first) {
+                    first = false; // saltamos cabecera
                     continue;
                 }
-                phrases.add(currentLine);
+
+                if (!line.trim().isEmpty()) {
+                    lines.add(line);
+                }
             }
-            reader.close();
-        } catch (Exception e) {
         }
 
-        return phrases;
-
+        return lines;
     }
 
-    public void deleteIfExist() throws IOException{
+    public void deleteIfExist() throws IOException {
 
-        final Path OUT_PUT_ROUTE = Path.of("./src/net/salesianosLaCuesta/outputs/resultFiles/imcCalc.txt");
+        if (Files.exists(OUTPUT_ROUTE)) {
+            Files.delete(OUTPUT_ROUTE);
+        }
+    }
 
-        if (OUT_PUT_ROUTE.toFile().exists()) {
-            Files.delete(OUT_PUT_ROUTE);
+    /**
+     * Escribe en imcCalc.txt todas las líneas recibidas, en orden.
+     * Crea la carpeta de salida si no existe.
+     */
+    public void escribirResultadosOrdenados(List<String> lineas) throws IOException {
+
+        // Nos aseguramos de que existe la carpeta ./outputs/resultFiles
+        Path parent = OUTPUT_ROUTE.getParent();
+        if (parent != null && !Files.exists(parent)) {
+            Files.createDirectories(parent);
         }
 
+        Files.write(
+                OUTPUT_ROUTE,
+                lineas,
+                StandardCharsets.UTF_8,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.TRUNCATE_EXISTING
+        );
     }
-
-    
 }

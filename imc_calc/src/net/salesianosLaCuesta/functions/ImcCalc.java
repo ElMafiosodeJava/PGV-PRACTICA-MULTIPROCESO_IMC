@@ -17,7 +17,7 @@ public class ImcCalc {
 
         float imc = Float.parseFloat(weight) / (Float.parseFloat(height) * 2) ;
 
-        System.out.println("El día " + day + " ,el cliente Marco con una altura de "+ height + " un peso de "+ weight +" tiene un IMC de: " + imc);
+        System.out.println("El dia " + day + " ,el cliente Marco con una altura de "+ height + " un peso de "+ weight +" tiene un IMC de: " + imc);
 
     }
 }

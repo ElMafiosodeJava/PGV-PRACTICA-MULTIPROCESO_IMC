@@ -1,7 +1,7 @@
-El día Lunes ,el cliente Marco con una altura de 1.91 un peso de 70.0 tiene un IMC de: 18.324608
-El día Miercoles ,el cliente Marco con una altura de 1.91 un peso de 71.0 tiene un IMC de: 18.586388
-El día Martes ,el cliente Marco con una altura de 1.91 un peso de 70.5 tiene un IMC de: 18.455498
-El día Domingo ,el cliente Marco con una altura de 1.91 un peso de 75 tiene un IMC de: 19.633509
-El día Jueves ,el cliente Marco con una altura de 1.91 un peso de 72 tiene un IMC de: 18.848167
-El día Viernes ,el cliente Marco con una altura de 1.91 un peso de 74 tiene un IMC de: 19.371729
-El día Sabado ,el cliente Marco con una altura de 1.91 un peso de 76 tiene un IMC de: 19.895288
+El dia Lunes ,el cliente Marco con una altura de 1.91 un peso de 70.0 tiene un IMC de: 18.324608
+El dia Martes ,el cliente Marco con una altura de 1.91 un peso de 70.5 tiene un IMC de: 18.455498
+El dia Miercoles ,el cliente Marco con una altura de 1.91 un peso de 71.0 tiene un IMC de: 18.586388
+El dia Jueves ,el cliente Marco con una altura de 1.91 un peso de 72 tiene un IMC de: 18.848167
+El dia Viernes ,el cliente Marco con una altura de 1.91 un peso de 74 tiene un IMC de: 19.371729
+El dia Sabado ,el cliente Marco con una altura de 1.91 un peso de 76 tiene un IMC de: 19.895288
+El dia Domingo ,el cliente Marco con una altura de 1.91 un peso de 75 tiene un IMC de: 19.633509
